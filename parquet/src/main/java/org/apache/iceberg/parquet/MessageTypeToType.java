@@ -257,8 +257,7 @@ class MessageTypeToType extends ParquetTypeVisitor<Type> {
     }
 
     @Override
-    public Optional<Type> visit(
-        LogicalTypeAnnotation.GeometryLogicalTypeAnnotation geometryType) {
+    public Optional<Type> visit(LogicalTypeAnnotation.GeometryLogicalTypeAnnotation geometryType) {
       return Optional.of(Types.GeometryType.of(geometryType.getCrs()));
     }
 
@@ -267,8 +266,7 @@ class MessageTypeToType extends ParquetTypeVisitor<Type> {
         LogicalTypeAnnotation.GeographyLogicalTypeAnnotation geographyType) {
       return Optional.of(
           Types.GeographyType.of(
-              geographyType.getCrs(),
-              EdgeAlgorithm.fromName(geographyType.getAlgorithm().name())));
+              geographyType.getCrs(), EdgeAlgorithm.fromName(geographyType.getAlgorithm().name())));
     }
   }
 
